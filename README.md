@@ -46,7 +46,6 @@ This application helps IT support teams manage employee technical issues through
 
 ```text
 IT-Helpdesk-Ticket-Management-System/
-│
 ├── app.py
 ├── database.py
 ├── insert_sample_tickets.py
@@ -73,7 +72,7 @@ python -m venv venv
 Activate it on Windows:
 
 ```bash
-venv\Scripts\activate
+.\venv\Scripts\Activate.ps1
 ```
 
 ### 3. Install dependencies
