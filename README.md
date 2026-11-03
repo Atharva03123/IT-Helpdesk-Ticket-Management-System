@@ -1,68 +1,127 @@
 # IT Helpdesk & Ticket Management System
 
-A beginner-friendly helpdesk ticketing application built with Python, Streamlit and PostgreSQL.
+A web-based IT Helpdesk and Ticket Management System built using Python, Streamlit, and PostgreSQL to manage technical support requests, track ticket status, monitor SLA targets, and analyze support operations.
 
-## Features
-- Dashboard showing ticket totals by status
-- Create support tickets
-- Categorize issues (Hardware, Software, Network, Account, Other)
-- Assign priority (Low, Medium, High, Critical)
-- Update ticket status and support engineer
-- Store troubleshooting and resolution notes
+## Project Overview
 
-## Requirements
-- Python 3.9+
-- PostgreSQL
-- VS Code (recommended)
+This application helps IT support teams manage employee technical issues through a centralized ticket management platform. Support engineers can create, assign, update, and track tickets while monitoring resolution performance.
 
-## Setup on Windows (PowerShell)
+## Key Features
 
-### 1. Create and activate a virtual environment
-```powershell
+- **Dashboard:** Monitor total, open, in-progress, and resolved tickets.
+- **Ticket Management:** Create and update technical support tickets.
+- **Priority Management:** Categorize tickets as Critical, High, Medium, or Low.
+- **SLA Monitoring:** Track resolution deadlines based on ticket priority.
+- **Engineer Workload:** Monitor pending tickets assigned to support engineers.
+- **Root Cause Analysis:** Record and analyze reasons behind resolved issues.
+- **Search and Filtering:** Find tickets by ID, title, requester, status, and priority.
+- **CSV Export:** Download ticket records for further analysis.
+- **Knowledge Base:** Access troubleshooting guidance for common IT issues.
+
+## Technology Stack
+
+| Technology | Purpose |
+|---|---|
+| Python | Application logic |
+| Streamlit | Web interface |
+| PostgreSQL | Database |
+| SQL | Database operations |
+| Pandas | Data processing |
+| Altair | Data visualization |
+| HTML & CSS | UI styling |
+| pg8000 | PostgreSQL connectivity |
+
+## SLA Configuration
+
+| Priority | Target Resolution Time |
+|---|---:|
+| Critical | 4 hours |
+| High | 8 hours |
+| Medium | 24 hours |
+| Low | 48 hours |
+
+*These are the configurable demo targets used in this project.*
+
+## Project Structure
+
+```text
+IT-Helpdesk-Ticket-Management-System/
+│
+├── app.py
+├── database.py
+├── insert_sample_tickets.py
+├── requirements.txt
+├── README.md
+└── .gitignore
+```
+
+## Installation and Setup
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/Atharva03123/IT-Helpdesk-Ticket-Management-System.git
+cd IT-Helpdesk-Ticket-Management-System
+```
+
+### 2. Create a virtual environment
+
+```bash
 python -m venv venv
-.\venv\Scripts\Activate.ps1
 ```
 
-### 2. Install packages
-```powershell
-python -m pip install -r requirements.txt
+Activate it on Windows:
+
+```bash
+venv\Scripts\activate
 ```
 
-### 3. Create the PostgreSQL database
-Open pgAdmin or psql and run:
-```sql
-CREATE DATABASE it_helpdesk;
+### 3. Install dependencies
+
+```bash
+pip install -r requirements.txt
 ```
 
-### 4. Configure your PostgreSQL password
-Open `database.py` and replace `CHANGE_ME` with the password for your local PostgreSQL `postgres` user.
+### 4. Configure PostgreSQL
 
-Do not upload your real database password to GitHub. For a safer setup, set the `DB_PASSWORD` environment variable in your terminal instead.
+Create a PostgreSQL database named `it_helpdesk`.
 
-PowerShell example:
-```powershell
-$env:DB_PASSWORD = "your_local_postgres_password"
+Create a `.env` file in the project root:
+
+```env
+DB_HOST=localhost
+DB_PORT=5432
+DB_NAME=it_helpdesk
+DB_USER=postgres
+DB_PASSWORD=your_postgresql_password
 ```
 
-If your PostgreSQL username is not `postgres`, set `DB_USER` too:
-```powershell
-$env:DB_USER = "your_postgres_username"
-```
+Replace the password with your own PostgreSQL password.
+
+**Important:** Never upload your `.env` file or database credentials to GitHub.
 
 ### 5. Run the application
-```powershell
+
+```bash
 streamlit run app.py
 ```
 
-Streamlit will show a local URL, usually http://localhost:8501.
+## Learning Outcomes
 
-## How to test
-1. Open **Create Ticket**.
-2. Enter a sample issue such as "Laptop cannot connect to Wi-Fi".
-3. Submit the ticket and note its ID.
-4. Open **Manage Tickets**.
-5. Assign an engineer, add troubleshooting notes, and change status to In Progress or Resolved.
-6. Return to **Dashboard** to see the updated counts.
+- Python application development
+- PostgreSQL database connectivity
+- SQL-based CRUD operations
+- IT support ticket lifecycle management
+- SLA monitoring and tracking
+- Dashboard development and data visualization
+- Basic troubleshooting workflow design
 
-## Learning note
-This is a learning/demo project, not a production-ready service desk. A production system would need authentication, role-based access, audit logs, stronger secret management, input controls, SLA rules, backups and deployment hardening.
+## Author
+
+**Atharva Shivangi**
+
+- GitHub: [Atharva03123](https://github.com/Atharva03123)
+
+---
+
+*Developed as a portfolio project to demonstrate Python development, database management, dashboard development, and IT support workflow automation.*
